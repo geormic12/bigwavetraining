@@ -170,6 +170,14 @@ body {
     color: var(--color-primary);
 }
 
+.hero-tagline {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--color-secondary);
+    margin-bottom: 20px;
+    letter-spacing: 0.5px;
+}
+
 .hero-subtitle {
     font-size: 1.25rem;
     color: var(--color-gray);
