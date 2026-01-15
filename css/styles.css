@@ -186,6 +186,54 @@ body {
     flex-wrap: wrap;
 }
 
+/* What You Need Section */
+.what-you-need {
+    padding: 40px 0;
+    background: var(--color-dark);
+    color: var(--color-white);
+}
+
+.need-content {
+    text-align: center;
+}
+
+.what-you-need h2 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+.need-list {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+}
+
+.need-list li {
+    position: relative;
+    padding-left: 24px;
+}
+
+.need-list li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: var(--color-secondary);
+    font-weight: bold;
+}
+
+.need-link {
+    color: var(--color-secondary);
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+.need-link:hover {
+    text-decoration: underline;
+}
+
 /* Problem Section */
 .problem {
     padding: 100px 0;
@@ -280,6 +328,58 @@ body {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 32px;
+}
+
+/* Two-Day Sessions Layout */
+.sessions-two-day {
+    display: flex;
+    gap: 40px;
+    align-items: stretch;
+}
+
+.day-column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.day-header {
+    font-size: 1.5rem;
+    color: var(--color-primary);
+    text-align: center;
+    padding-bottom: 16px;
+    border-bottom: 2px solid var(--color-light);
+    margin-bottom: 8px;
+}
+
+.day-divider {
+    width: 2px;
+    background: linear-gradient(to bottom, transparent, var(--color-primary), transparent);
+    margin: 40px 0;
+}
+
+.sessions-takeaway {
+    text-align: center;
+    font-size: 1.15rem;
+    color: var(--color-gray);
+    margin-top: 48px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.7;
+}
+
+.sessions-takeaway em {
+    color: var(--color-primary);
+    font-style: normal;
+    font-weight: 600;
+}
+
+.feature-card h4 {
+    font-size: 1.15rem;
+    margin-bottom: 12px;
+    color: var(--color-dark);
 }
 
 .feature-card {
@@ -596,6 +696,13 @@ body {
     text-align: left;
 }
 
+.schedule-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    text-align: left;
+}
+
 .schedule-item {
     padding: 8px 16px;
     background: var(--color-dark-light);
@@ -751,5 +858,21 @@ body {
 
     h2 {
         font-size: 2rem !important;
+    }
+
+    .sessions-two-day {
+        flex-direction: column;
+    }
+
+    .day-divider {
+        width: 100%;
+        height: 2px;
+        margin: 20px 0;
+    }
+
+    .need-list {
+        flex-direction: column;
+        gap: 12px;
+        align-items: center;
     }
 }
