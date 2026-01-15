@@ -553,6 +553,153 @@ body {
     width: 100%;
 }
 
+.contact-form h3 {
+    text-align: center;
+    font-size: 1.25rem;
+    margin-bottom: 20px;
+    color: var(--color-white);
+}
+
+.contact-alternative {
+    text-align: center;
+    margin-top: 24px;
+    font-size: 0.9rem;
+    color: var(--color-gray-light);
+}
+
+.contact-alternative a {
+    color: var(--color-secondary);
+    text-decoration: none;
+}
+
+.contact-alternative a:hover {
+    text-decoration: underline;
+}
+
+/* Schedule Info */
+.schedule-info {
+    max-width: 500px;
+    margin: 0 auto 48px;
+    text-align: center;
+}
+
+.schedule-info h3 {
+    font-size: 1.25rem;
+    margin-bottom: 24px;
+    color: var(--color-white);
+}
+
+.schedule-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    text-align: left;
+}
+
+.schedule-item {
+    padding: 8px 16px;
+    background: var(--color-dark-light);
+    border-radius: var(--radius-sm);
+    font-size: 0.9rem;
+}
+
+.schedule-item strong {
+    color: var(--color-secondary);
+}
+
+/* Pricing Info */
+.pricing-info {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 48px;
+}
+
+.price-card {
+    text-align: center;
+    padding: 32px 48px;
+    background: var(--color-dark-light);
+    border-radius: var(--radius-md);
+}
+
+.price-card.featured {
+    border: 2px solid var(--color-secondary);
+}
+
+.price-label {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--color-secondary);
+    margin-bottom: 8px;
+}
+
+.price {
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--color-white);
+}
+
+.price-original {
+    font-size: 1.25rem;
+    color: var(--color-gray);
+    text-decoration: line-through;
+    margin-top: 4px;
+}
+
+.price-note {
+    font-size: 0.85rem;
+    color: var(--color-gray-light);
+    margin-top: 8px;
+}
+
+/* Date Selection */
+.date-selection {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    margin-bottom: 32px;
+}
+
+.date-option {
+    cursor: pointer;
+}
+
+.date-option input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.date-card {
+    display: block;
+    padding: 20px;
+    background: var(--color-dark-light);
+    border: 2px solid var(--color-dark-light);
+    border-radius: var(--radius-sm);
+    text-align: center;
+    transition: all 0.2s;
+}
+
+.date-card strong {
+    display: block;
+    color: var(--color-white);
+    margin-bottom: 8px;
+}
+
+.date-price {
+    font-size: 0.9rem;
+    color: var(--color-gray-light);
+}
+
+.date-option input:checked + .date-card {
+    border-color: var(--color-secondary);
+    background: rgba(0, 212, 170, 0.1);
+}
+
+.date-option:hover .date-card {
+    border-color: var(--color-gray);
+}
+
 /* Footer */
 .footer {
     padding: 40px 0;
