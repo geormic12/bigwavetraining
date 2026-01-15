@@ -237,7 +237,7 @@
                     </div>
                 </div>
 
-                <form class="contact-form" action="#" method="POST">
+                <form class="contact-form" id="registration-form">
                     <h3>Select Your Weekend</h3>
                     <div class="date-selection">
                         <label class="date-option">
@@ -275,6 +275,7 @@
                         <input type="email" name="email" placeholder="Your Email" required>
                     </div>
                     <button type="submit" class="btn btn-primary btn-large">Reserve Your Spot</button>
+                    <div id="form-message" class="form-message" style="display: none;"></div>
 
                     <p class="contact-alternative">Have individual needs or questions? <a href="mailto:mikegeorge@gmail.com">Reach out directly</a></p>
                 </form>
@@ -293,5 +294,69 @@
             </div>
         </div>
     </footer>
+
+    <script>
+        // Registration form handling
+        // WEBHOOK URL - Update this when n8n is exposed to the internet
+        const WEBHOOK_URL = 'https://n8n.bigwavetraining.com/webhook/bigwave-register';
+
+        document.getElementById('registration-form').addEventListener('submit', async function(e) {
+            e.preventDefault();
+
+            const form = e.target;
+            const submitBtn = form.querySelector('button[type="submit"]');
+            const messageDiv = document.getElementById('form-message');
+
+            // Get form data
+            const formData = new FormData(form);
+            const data = {
+                name: formData.get('name'),
+                email: formData.get('email'),
+                course_date: formData.get('course_date')
+            };
+
+            // Validate
+            if (!data.course_date) {
+                messageDiv.textContent = 'Please select a weekend.';
+                messageDiv.className = 'form-message error';
+                messageDiv.style.display = 'block';
+                return;
+            }
+
+            // Show loading state
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Submitting...';
+            messageDiv.style.display = 'none';
+
+            try {
+                const response = await fetch(WEBHOOK_URL, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data)
+                });
+
+                const result = await response.json();
+
+                if (result.success) {
+                    messageDiv.textContent = result.message;
+                    messageDiv.className = 'form-message success';
+                    form.reset();
+                } else {
+                    messageDiv.textContent = 'Something went wrong. Please try again or email mikegeorge@gmail.com directly.';
+                    messageDiv.className = 'form-message error';
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                messageDiv.textContent = 'Unable to submit. Please email mikegeorge@gmail.com directly to register.';
+                messageDiv.className = 'form-message error';
+            }
+
+            messageDiv.style.display = 'block';
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Reserve Your Spot';
+        });
+    </script>
 </body>
 </html>

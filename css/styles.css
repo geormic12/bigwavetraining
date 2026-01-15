@@ -720,6 +720,27 @@ body {
     text-decoration: underline;
 }
 
+/* Form Messages */
+.form-message {
+    padding: 16px;
+    border-radius: 8px;
+    margin-top: 16px;
+    text-align: center;
+    font-weight: 500;
+}
+
+.form-message.success {
+    background-color: rgba(34, 197, 94, 0.2);
+    color: #22c55e;
+    border: 1px solid #22c55e;
+}
+
+.form-message.error {
+    background-color: rgba(239, 68, 68, 0.2);
+    color: #ef4444;
+    border: 1px solid #ef4444;
+}
+
 /* Schedule Info */
 .schedule-info {
     max-width: 500px;
