@@ -265,8 +265,15 @@ body {
 .features h2 {
     text-align: center;
     font-size: 2.5rem;
-    margin-bottom: 60px;
+    margin-bottom: 16px;
     color: var(--color-dark);
+}
+
+.section-subtitle {
+    text-align: center;
+    font-size: 1.1rem;
+    color: var(--color-gray);
+    margin-bottom: 60px;
 }
 
 .feature-grid {
@@ -300,6 +307,24 @@ body {
 
 .feature-card p {
     color: var(--color-gray);
+}
+
+.feature-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--color-primary);
+    margin-bottom: 12px;
+}
+
+.feature-outcome {
+    margin-top: 20px;
+    padding-top: 16px;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--color-dark);
 }
 
 /* Process Section */
@@ -389,6 +414,78 @@ body {
 .audience-card p {
     color: var(--color-gray);
     font-size: 0.95rem;
+}
+
+/* Transformation Section */
+.transformation {
+    padding: 100px 0;
+    background: var(--color-light);
+}
+
+.transformation h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 48px;
+    color: var(--color-dark);
+}
+
+.transformation-content {
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.transformation-content p {
+    font-size: 1.15rem;
+    color: var(--color-gray);
+    margin-bottom: 24px;
+    line-height: 1.8;
+}
+
+.transformation-lead {
+    font-size: 1.35rem !important;
+    color: var(--color-dark) !important;
+    font-weight: 500;
+}
+
+.transformation-emphasis {
+    font-size: 1.35rem !important;
+    color: var(--color-primary) !important;
+    font-weight: 600;
+    margin-top: 32px !important;
+}
+
+/* Format Section */
+.format {
+    padding: 80px 0;
+    background: var(--color-white);
+    border-top: 1px solid var(--color-light);
+}
+
+.format h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 40px;
+    color: var(--color-dark);
+}
+
+.format-details {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.format-item {
+    padding: 16px 0;
+    border-bottom: 1px solid var(--color-light);
+    font-size: 1.05rem;
+}
+
+.format-item:last-child {
+    border-bottom: none;
+}
+
+.format-item strong {
+    color: var(--color-dark);
 }
 
 /* CTA Section */
