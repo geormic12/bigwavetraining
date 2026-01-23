@@ -272,43 +272,17 @@
                 </div>
 
                 <form class="contact-form" id="registration-form">
-                    <h3>Select Your Weekend</h3>
-                    <div class="date-selection">
-                        <label class="date-option">
-                            <input type="radio" name="course_date" value="2025-01-31" required>
-                            <span class="date-card">
-                                <strong>January 31 - February 1</strong>
-                                <span class="date-price">$500 (Launch)</span>
-                            </span>
-                        </label>
-                        <label class="date-option">
-                            <input type="radio" name="course_date" value="2025-02-07">
-                            <span class="date-card">
-                                <strong>February 7-8</strong>
-                                <span class="date-price">$700</span>
-                            </span>
-                        </label>
-                        <label class="date-option">
-                            <input type="radio" name="course_date" value="2025-02-14">
-                            <span class="date-card">
-                                <strong>February 14-15</strong>
-                                <span class="date-price">$700</span>
-                            </span>
-                        </label>
-                        <label class="date-option">
-                            <input type="radio" name="course_date" value="2025-02-21">
-                            <span class="date-card">
-                                <strong>February 21-22</strong>
-                                <span class="date-price">$700</span>
-                            </span>
-                        </label>
+                    <h3>Select Your Course Date</h3>
+                    <div class="date-selection" id="date-selection">
+                        <!-- Dates will be populated dynamically from n8n -->
+                        <div class="loading-dates">Loading available dates...</div>
                     </div>
 
                     <div class="form-row">
                         <input type="text" name="name" placeholder="Your Name" required>
                         <input type="email" name="email" placeholder="Your Email" required>
                     </div>
-                    <button type="submit" class="btn btn-primary btn-large">Reserve Your Spot</button>
+                    <button type="submit" class="btn btn-primary btn-large" id="submit-btn">Reserve Your Spot</button>
                     <div id="form-message" class="form-message" style="display: none;"></div>
 
                     <p class="contact-alternative">Have individual needs or questions? <a href="mailto:mikegeorge@gmail.com">Reach out directly</a></p>
@@ -330,15 +304,80 @@
     </footer>
 
     <script>
-        // Registration form handling
-        // WEBHOOK URL - Update this when n8n is exposed to the internet
-        const WEBHOOK_URL = 'https://n8n.bigwavetraining.com/webhook/bigwave-register';
+        // Big Wave Training - Registration System
+        // Endpoints
+        const API_BASE = 'https://n8n.bigwavetraining.com/webhook';
+        const AVAILABILITY_URL = `${API_BASE}/bigwave-availability`;
+        const REGISTER_URL = `${API_BASE}/bigwave-register`;
 
+        // Fallback dates if API is unavailable
+        const FALLBACK_DATES = [
+            { date: '2025-01-31', display: 'January 31 - February 1', price: 500, capacity: 12, registered: 0, status: 'open' },
+            { date: '2025-02-07', display: 'February 7-8', price: 700, capacity: 12, registered: 0, status: 'open' },
+            { date: '2025-02-14', display: 'February 14-15', price: 700, capacity: 12, registered: 0, status: 'open' },
+            { date: '2025-02-21', display: 'February 21-22', price: 700, capacity: 12, registered: 0, status: 'open' }
+        ];
+
+        // Load availability on page load
+        document.addEventListener('DOMContentLoaded', loadAvailability);
+
+        async function loadAvailability() {
+            const container = document.getElementById('date-selection');
+
+            try {
+                const response = await fetch(AVAILABILITY_URL);
+                if (!response.ok) throw new Error('API unavailable');
+                const dates = await response.json();
+                renderDates(dates);
+            } catch (error) {
+                console.warn('Could not load availability, using fallback:', error);
+                renderDates(FALLBACK_DATES);
+            }
+        }
+
+        function renderDates(dates) {
+            const container = document.getElementById('date-selection');
+            container.innerHTML = '';
+
+            dates.forEach(course => {
+                const available = course.capacity - course.registered;
+                const isFull = available <= 0 || course.status === 'full' || course.status === 'closed';
+                const isLaunch = course.price === 500;
+
+                // Determine availability indicator
+                let availabilityClass = 'available-high';
+                let availabilityText = `${course.registered}/${course.capacity} spots filled`;
+
+                if (isFull) {
+                    availabilityClass = 'available-none';
+                    availabilityText = 'FULL - Join Waitlist';
+                } else if (available <= 3) {
+                    availabilityClass = 'available-low';
+                    availabilityText = `Only ${available} spots left!`;
+                } else if (available <= 6) {
+                    availabilityClass = 'available-medium';
+                }
+
+                const label = document.createElement('label');
+                label.className = `date-option ${isFull ? 'date-full' : ''}`;
+                label.innerHTML = `
+                    <input type="radio" name="course_date" value="${course.date}" ${isFull ? 'disabled' : ''} required>
+                    <span class="date-card">
+                        <strong>${course.display}</strong>
+                        <span class="date-price">$${course.price}${isLaunch ? ' (Launch)' : ''}</span>
+                        <span class="date-availability ${availabilityClass}">${availabilityText}</span>
+                    </span>
+                `;
+                container.appendChild(label);
+            });
+        }
+
+        // Form submission
         document.getElementById('registration-form').addEventListener('submit', async function(e) {
             e.preventDefault();
 
             const form = e.target;
-            const submitBtn = form.querySelector('button[type="submit"]');
+            const submitBtn = document.getElementById('submit-btn');
             const messageDiv = document.getElementById('form-message');
 
             // Get form data
@@ -349,9 +388,9 @@
                 course_date: formData.get('course_date')
             };
 
-            // Validate
+            // Validate date selection
             if (!data.course_date) {
-                messageDiv.textContent = 'Please select a weekend.';
+                messageDiv.textContent = 'Please select a course date.';
                 messageDiv.className = 'form-message error';
                 messageDiv.style.display = 'block';
                 return;
@@ -359,11 +398,11 @@
 
             // Show loading state
             submitBtn.disabled = true;
-            submitBtn.textContent = 'Submitting...';
+            submitBtn.textContent = 'Processing...';
             messageDiv.style.display = 'none';
 
             try {
-                const response = await fetch(WEBHOOK_URL, {
+                const response = await fetch(REGISTER_URL, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -373,23 +412,29 @@
 
                 const result = await response.json();
 
-                if (result.success) {
-                    messageDiv.textContent = result.message;
-                    messageDiv.className = 'form-message success';
-                    form.reset();
-                } else {
-                    messageDiv.textContent = 'Something went wrong. Please try again or email mikegeorge@gmail.com directly.';
+                if (result.checkout_url) {
+                    // Redirect to Stripe checkout
+                    window.location.href = result.checkout_url;
+                } else if (result.waitlist) {
+                    // Redirect to waitlist page
+                    window.location.href = '/waitlist.html';
+                } else if (result.error) {
+                    messageDiv.textContent = result.error;
                     messageDiv.className = 'form-message error';
+                    messageDiv.style.display = 'block';
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'Reserve Your Spot';
+                } else {
+                    throw new Error('Unexpected response');
                 }
             } catch (error) {
-                console.error('Error:', error);
-                messageDiv.textContent = 'Unable to submit. Please email mikegeorge@gmail.com directly to register.';
+                console.error('Registration error:', error);
+                messageDiv.textContent = 'Unable to process registration. Please email mikegeorge@gmail.com directly.';
                 messageDiv.className = 'form-message error';
+                messageDiv.style.display = 'block';
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Reserve Your Spot';
             }
-
-            messageDiv.style.display = 'block';
-            submitBtn.disabled = false;
-            submitBtn.textContent = 'Reserve Your Spot';
         });
     </script>
 </body>

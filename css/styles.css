@@ -935,6 +935,58 @@ body {
     border-color: var(--color-gray);
 }
 
+/* Availability Indicators */
+.date-availability {
+    display: block;
+    margin-top: 8px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    padding: 4px 8px;
+    border-radius: 4px;
+}
+
+.date-availability.available-high {
+    color: #22c55e;
+    background: rgba(34, 197, 94, 0.15);
+}
+
+.date-availability.available-medium {
+    color: #eab308;
+    background: rgba(234, 179, 8, 0.15);
+}
+
+.date-availability.available-low {
+    color: #f97316;
+    background: rgba(249, 115, 22, 0.15);
+}
+
+.date-availability.available-none {
+    color: #ef4444;
+    background: rgba(239, 68, 68, 0.15);
+}
+
+/* Full date styling */
+.date-option.date-full {
+    cursor: not-allowed;
+}
+
+.date-option.date-full .date-card {
+    opacity: 0.6;
+    background: var(--color-dark);
+}
+
+.date-option.date-full:hover .date-card {
+    border-color: var(--color-dark-light);
+}
+
+/* Loading state */
+.loading-dates {
+    text-align: center;
+    padding: 40px;
+    color: var(--color-gray-light);
+    font-style: italic;
+}
+
 /* Footer */
 .footer {
     padding: 40px 0;

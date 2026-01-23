@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>You're on the Waitlist - Big Wave Training</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .waitlist-page {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 24px;
+            background: linear-gradient(135deg, var(--color-dark) 0%, var(--color-dark-light) 100%);
+            text-align: center;
+        }
+
+        .waitlist-card {
+            background: var(--color-white);
+            border-radius: var(--radius-lg);
+            padding: 60px 40px;
+            max-width: 600px;
+            width: 100%;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .waitlist-icon {
+            font-size: 4rem;
+            margin-bottom: 24px;
+        }
+
+        .waitlist-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--color-dark);
+            margin-bottom: 16px;
+        }
+
+        .waitlist-subtitle {
+            font-size: 1.25rem;
+            color: var(--color-gray);
+            margin-bottom: 32px;
+        }
+
+        .waitlist-info {
+            background: #fff7ed;
+            border: 1px solid #fed7aa;
+            border-radius: var(--radius-md);
+            padding: 24px;
+            margin-bottom: 32px;
+            text-align: left;
+        }
+
+        .waitlist-info h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #c2410c;
+            margin-bottom: 12px;
+        }
+
+        .waitlist-info p {
+            color: #9a3412;
+            line-height: 1.6;
+        }
+
+        .waitlist-message {
+            color: var(--color-gray);
+            margin-bottom: 32px;
+            line-height: 1.7;
+        }
+
+        .waitlist-cta {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-secondary-outline {
+            background: transparent;
+            border: 2px solid var(--color-primary);
+            color: var(--color-primary);
+        }
+
+        .btn-secondary-outline:hover {
+            background: var(--color-primary);
+            color: white;
+        }
+
+        @media (max-width: 480px) {
+            .waitlist-card {
+                padding: 40px 24px;
+            }
+
+            .waitlist-title {
+                font-size: 2rem;
+            }
+
+            .waitlist-cta {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main class="waitlist-page">
+        <div class="waitlist-card">
+            <div class="waitlist-icon">📋</div>
+            <h1 class="waitlist-title">You're on the Waitlist</h1>
+            <p class="waitlist-subtitle">The session you selected is currently full</p>
+
+            <div class="waitlist-info">
+                <h3>What this means:</h3>
+                <p>
+                    We keep our classes small (12 people max) so everyone gets personal attention.
+                    If a spot opens up, we'll contact you immediately. You're not charged unless
+                    you get a spot.
+                </p>
+            </div>
+
+            <p class="waitlist-message">
+                <strong>Want a guaranteed spot?</strong> Other dates may still have availability.
+                Check the homepage to see which sessions have open spots.
+            </p>
+
+            <div class="waitlist-cta">
+                <a href="/#contact" class="btn btn-primary">Check Other Dates</a>
+                <a href="/" class="btn btn-secondary-outline">Back to Homepage</a>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
