@@ -305,12 +305,16 @@
 
     <script>
         // Big Wave Training - Registration System
-        // Endpoints
-        const API_BASE = 'https://n8n.bigwavetraining.com/webhook';
-        const AVAILABILITY_URL = `${API_BASE}/bigwave-availability`;
-        const REGISTER_URL = `${API_BASE}/bigwave-register`;
 
-        // Fallback dates if API is unavailable
+        // Google Sheets API (direct read - no n8n dependency for availability)
+        const SHEET_ID = '1aDZ4Von7XrsLpf7N3CQSNg_9eERdM1k3vg6r-ym9bJ8';
+        const API_KEY = 'AIzaSyBIvVps-l7NTzJKlRj-LvqVb8V0P_oBpRo';
+        const SHEETS_URL = `https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/Course%20Dates!A2:G?key=${API_KEY}`;
+
+        // n8n endpoint (still needed for Stripe checkout)
+        const REGISTER_URL = 'https://n8n.bigwavetraining.com/webhook/bigwave-register';
+
+        // Fallback dates if Google Sheets API is unavailable
         const FALLBACK_DATES = [
             { date: '2025-01-31', display: 'January 31 - February 1', price: 500, capacity: 12, registered: 0, status: 'open' },
             { date: '2025-02-07', display: 'February 7-8', price: 700, capacity: 12, registered: 0, status: 'open' },
@@ -322,15 +326,27 @@
         document.addEventListener('DOMContentLoaded', loadAvailability);
 
         async function loadAvailability() {
-            const container = document.getElementById('date-selection');
-
             try {
-                const response = await fetch(AVAILABILITY_URL);
-                if (!response.ok) throw new Error('API unavailable');
-                const dates = await response.json();
+                // Direct call to Google Sheets API (works even if PC is off)
+                const response = await fetch(SHEETS_URL);
+                if (!response.ok) throw new Error('Sheets API unavailable');
+                const data = await response.json();
+
+                // Parse Google Sheets rows into course objects
+                // Columns: Start Date | End Date | Display | Capacity | Registered | Available | Price
+                const dates = data.values.map(row => ({
+                    date: row[0],           // Start Date (e.g., "2025-01-31")
+                    display: row[2],        // Display (e.g., "January 31 - February 1")
+                    capacity: parseInt(row[3]) || 12,
+                    registered: parseInt(row[4]) || 0,
+                    available: parseInt(row[5]) || 12,
+                    price: parseInt(row[6]) || 700,
+                    status: (parseInt(row[5]) || 12) <= 0 ? 'full' : 'open'  // Derive status from available
+                }));
+
                 renderDates(dates);
             } catch (error) {
-                console.warn('Could not load availability, using fallback:', error);
+                console.warn('Could not load availability from Google Sheets, using fallback:', error);
                 renderDates(FALLBACK_DATES);
             }
         }
