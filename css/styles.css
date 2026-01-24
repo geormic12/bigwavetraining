@@ -793,18 +793,32 @@ body {
 
 .contact-alternative {
     text-align: center;
-    margin-top: 24px;
-    font-size: 0.9rem;
-    color: var(--color-gray-light);
+    margin-top: 32px;
+    padding-top: 24px;
+    border-top: 1px solid var(--color-dark-light);
 }
 
-.contact-alternative a {
+.contact-alternative p {
+    font-size: 1rem;
+    color: var(--color-gray-light);
+    margin-bottom: 8px;
+}
+
+.contact-email {
+    display: inline-block;
+    font-size: 1.25rem;
+    font-weight: 600;
     color: var(--color-secondary);
     text-decoration: none;
+    padding: 12px 24px;
+    border: 2px solid var(--color-secondary);
+    border-radius: 8px;
+    transition: all 0.2s ease;
 }
 
-.contact-alternative a:hover {
-    text-decoration: underline;
+.contact-email:hover {
+    background: var(--color-secondary);
+    color: var(--color-dark);
 }
 
 /* Form Messages */
@@ -1036,6 +1050,17 @@ body {
 .footer-tagline {
     color: var(--color-gray);
     font-size: 0.9rem;
+}
+
+.footer-email {
+    color: var(--color-secondary);
+    text-decoration: none;
+    font-size: 0.95rem;
+    margin-top: 4px;
+}
+
+.footer-email:hover {
+    text-decoration: underline;
 }
 
 /* Responsive */
