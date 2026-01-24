@@ -194,6 +194,33 @@ body {
     flex-wrap: wrap;
 }
 
+.hero-list {
+    margin-bottom: 16px !important;
+}
+
+.hero-ideas {
+    list-style: none;
+    text-align: left;
+    max-width: 500px;
+    margin: 0 auto 40px;
+}
+
+.hero-ideas li {
+    padding: 10px 0;
+    padding-left: 28px;
+    position: relative;
+    font-size: 1.1rem;
+    color: var(--color-dark);
+}
+
+.hero-ideas li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: var(--color-primary);
+    font-weight: bold;
+}
+
 /* Location Badge */
 .location-badge {
     display: inline-block;
@@ -398,14 +425,14 @@ body {
 }
 
 .comparison-card.before li::before {
-    content: "✕";
+    content: "→";
     position: absolute;
     left: 0;
-    color: #ff6b6b;
+    color: var(--color-gray-light);
 }
 
 .comparison-card.after li::before {
-    content: "✓";
+    content: "→";
     position: absolute;
     left: 0;
     font-weight: bold;
@@ -1022,6 +1049,10 @@ body {
 
     .hero-subtitle {
         font-size: 1.1rem;
+    }
+
+    .hero-ideas li {
+        font-size: 1rem;
     }
 
     .nav-links {
