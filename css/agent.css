@@ -1,0 +1,362 @@
+/* AI Agent Page Styles */
+
+/* Hero */
+.agent-hero {
+    background: linear-gradient(135deg, #0a1628 0%, #1a2a44 50%, #00d4aa 200%);
+    color: var(--color-white);
+}
+
+.agent-hero .hero-subtitle {
+    color: var(--color-gray-light);
+}
+
+.agent-hero .btn-secondary {
+    color: var(--color-white);
+    border-color: var(--color-white);
+}
+
+.agent-hero .btn-secondary:hover {
+    background: var(--color-white);
+    color: var(--color-dark);
+}
+
+.agent-badge {
+    background: var(--color-secondary) !important;
+    color: var(--color-dark) !important;
+}
+
+/* Difference Section */
+.agent-difference {
+    padding: 100px 0;
+    background: var(--color-dark);
+    color: var(--color-white);
+}
+
+.agent-difference h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 16px;
+}
+
+/* Capabilities / Roles */
+.agent-capabilities {
+    padding: 100px 0;
+    background: var(--color-white);
+}
+
+.agent-capabilities h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 16px;
+    color: var(--color-dark);
+}
+
+.roles-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 32px;
+    margin-top: 48px;
+}
+
+.role-card {
+    border: 2px solid var(--color-light);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.role-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+}
+
+.role-header {
+    padding: 24px 32px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.ea-header {
+    background: linear-gradient(135deg, var(--color-primary) 0%, #0052cc 100%);
+    color: var(--color-white);
+}
+
+.dev-header {
+    background: linear-gradient(135deg, var(--color-secondary) 0%, #00b894 100%);
+    color: var(--color-dark);
+}
+
+.role-icon {
+    font-size: 2rem;
+}
+
+.role-header h3 {
+    font-size: 1.35rem;
+    margin: 0;
+}
+
+.role-list {
+    list-style: none;
+    padding: 24px 32px;
+}
+
+.role-list li {
+    padding: 10px 0 10px 28px;
+    position: relative;
+    color: var(--color-dark);
+    font-size: 0.95rem;
+    border-bottom: 1px solid var(--color-light);
+}
+
+.role-list li:last-child {
+    border-bottom: none;
+}
+
+.role-list li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: var(--color-primary);
+    font-weight: bold;
+}
+
+/* Always On Section */
+.agent-always-on {
+    padding: 100px 0;
+    background: var(--color-light);
+}
+
+.agent-always-on h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 16px;
+    color: var(--color-dark);
+}
+
+.always-on-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 24px;
+    margin-top: 48px;
+}
+
+.on-card {
+    background: var(--color-white);
+    padding: 32px;
+    border-radius: var(--radius-md);
+    text-align: center;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.on-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+}
+
+.on-icon {
+    font-size: 2.5rem;
+    margin-bottom: 16px;
+}
+
+.on-card h3 {
+    font-size: 1.15rem;
+    margin-bottom: 12px;
+    color: var(--color-dark);
+}
+
+.on-card p {
+    color: var(--color-gray);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+/* Day in the Life Timeline */
+.agent-examples {
+    padding: 100px 0;
+    background: var(--color-white);
+}
+
+.agent-examples h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 16px;
+    color: var(--color-dark);
+}
+
+.timeline-list {
+    max-width: 700px;
+    margin: 48px auto 0;
+}
+
+.timeline-item {
+    display: flex;
+    gap: 24px;
+    padding: 20px 0;
+    border-bottom: 1px solid var(--color-light);
+}
+
+.timeline-item:last-child {
+    border-bottom: none;
+}
+
+.timeline-time {
+    min-width: 90px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: var(--color-primary);
+    padding-top: 2px;
+}
+
+.timeline-desc {
+    color: var(--color-gray);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+/* Process overrides */
+.agent-process {
+    background: var(--color-light);
+}
+
+/* Pricing */
+.agent-pricing {
+    padding: 100px 0;
+    background: var(--color-dark);
+    color: var(--color-white);
+}
+
+.agent-pricing h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 48px;
+}
+
+.pricing-card {
+    max-width: 560px;
+    margin: 0 auto;
+    background: var(--color-dark-light);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    border: 2px solid rgba(0, 212, 170, 0.3);
+}
+
+.pricing-header {
+    padding: 32px;
+    text-align: center;
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+}
+
+.pricing-header h3 {
+    font-size: 1.5rem;
+    margin-bottom: 8px;
+}
+
+.pricing-header p {
+    opacity: 0.9;
+    font-size: 0.95rem;
+}
+
+.pricing-body {
+    padding: 32px;
+}
+
+.price-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 0;
+}
+
+.price-label {
+    font-size: 1rem;
+    color: var(--color-gray-light);
+}
+
+.price-amount {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--color-white);
+}
+
+.price-period {
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--color-gray-light);
+}
+
+.price-divider {
+    height: 1px;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.pricing-features {
+    padding: 0 32px 16px;
+}
+
+.pricing-features ul {
+    list-style: none;
+}
+
+.pricing-features li {
+    padding: 8px 0 8px 28px;
+    position: relative;
+    color: var(--color-gray-light);
+    font-size: 0.95rem;
+}
+
+.pricing-features li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: var(--color-secondary);
+    font-weight: bold;
+}
+
+.pricing-card .btn {
+    display: block;
+    margin: 16px 32px 32px;
+    text-align: center;
+}
+
+/* CTA overrides */
+.agent-cta {
+    background: var(--color-light);
+}
+
+.agent-cta h2 {
+    color: var(--color-dark);
+}
+
+.agent-cta p {
+    color: var(--color-gray);
+}
+
+.agent-cta textarea {
+    width: 100%;
+    margin-bottom: 16px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .roles-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .always-on-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .timeline-item {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .timeline-time {
+        min-width: auto;
+    }
+
+    .price-amount {
+        font-size: 1.5rem;
+    }
+}
