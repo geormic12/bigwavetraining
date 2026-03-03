@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Big Wave AI - About Mike George</title>
+    <title>Big Wave AI - About Michael George</title>
     <link rel="stylesheet" href="css/styles.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -12,69 +12,11 @@
       rel="stylesheet"
     />
     <style>
-      .about-hero {
-        padding: 200px 24px 80px;
-        background: radial-gradient(ellipse at top, #1b2a4a 0%, #0a1628 70%);
-        color: white;
-        text-align: center;
-        position: relative;
-        overflow: hidden;
-      }
-      .about-hero::before {
-        content: '';
-        position: absolute;
-        bottom: -50%;
-        left: -20%;
-        width: 140%;
-        height: 100%;
-        background: radial-gradient(ellipse at center, rgba(0, 102, 255, 0.06) 0%, transparent 70%);
-        pointer-events: none;
-      }
-      .about-hero .hero-content {
-        position: relative;
-        z-index: 1;
-      }
-      .about-hero h1 {
-        font-family: 'Playfair Display', Georgia, serif;
-        font-size: 4.5rem;
-        font-weight: 700;
-        line-height: 1.05;
-        margin-bottom: 20px;
-        color: white;
-      }
-      .about-hero .hero-tagline {
-        font-family: 'Inter', sans-serif;
-        font-size: 1.1rem;
-        font-weight: 500;
-        letter-spacing: 3px;
-        text-transform: uppercase;
-        color: #00d4aa;
-        margin-bottom: 32px;
-      }
-      .about-hero .hero-subtitle {
-        font-size: 1.2rem;
-        color: #94a3b8;
-        max-width: 580px;
-        margin: 0 auto 20px;
-        line-height: 1.7;
-      }
-      .about-hero .hero-cta {
-        margin-top: 40px;
-      }
-      .about-hero .btn-secondary {
-        color: white;
-        border-color: rgba(255, 255, 255, 0.3);
-      }
-      .about-hero .btn-secondary:hover {
-        background: white;
-        color: #0a1628;
-      }
-
-      /* Stats strip */
+      /* About page — stats strip + card grid overrides */
       .stats-strip {
-        background: #0a1628;
-        border-top: 1px solid rgba(255, 255, 255, 0.05);
-        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        background: var(--color-dark);
+        border-top: var(--border-subtle);
+        border-bottom: var(--border-subtle);
         padding: 48px 24px;
       }
       .stats-grid {
@@ -85,34 +27,20 @@
         gap: 32px;
         text-align: center;
       }
-      .stat-item .stat-number {
-        font-family: 'Playfair Display', Georgia, serif;
+      .stat-number {
+        font-family: var(--font-serif);
         font-size: 3rem;
         font-weight: 700;
-        color: white;
+        color: var(--color-white);
         line-height: 1;
         margin-bottom: 8px;
       }
-      .stat-item .stat-label {
+      .stat-label {
         font-size: 0.85rem;
-        color: #64748b;
+        color: var(--color-gray);
         text-transform: uppercase;
         letter-spacing: 1.5px;
         font-weight: 500;
-      }
-
-      /* Dark experience section */
-      .about-experience {
-        padding: 100px 0;
-        background: #0f1a2e;
-        color: white;
-      }
-      .about-experience h2 {
-        text-align: center;
-        font-family: 'Playfair Display', Georgia, serif;
-        font-size: 2.5rem;
-        margin-bottom: 60px;
-        color: white;
       }
       .about-grid {
         max-width: 1000px;
@@ -125,8 +53,8 @@
       .about-card {
         padding: 36px;
         background: rgba(255, 255, 255, 0.03);
-        border: 1px solid rgba(255, 255, 255, 0.06);
-        border-radius: 12px;
+        border: var(--border-subtle);
+        border-radius: var(--radius-md);
         transition: border-color 0.3s, background 0.3s;
       }
       .about-card:hover {
@@ -137,105 +65,27 @@
         font-size: 0.75rem;
         text-transform: uppercase;
         letter-spacing: 2px;
-        color: #00d4aa;
+        color: var(--color-secondary);
         font-weight: 600;
         margin-bottom: 12px;
-        font-family: 'Inter', sans-serif;
       }
       .about-card h3 {
-        font-family: 'Playfair Display', Georgia, serif;
+        font-family: var(--font-serif);
         font-size: 1.4rem;
         font-weight: 500;
-        color: white;
+        color: var(--color-white);
         margin-bottom: 14px;
         line-height: 1.3;
       }
       .about-card p {
-        color: #94a3b8;
+        color: var(--color-gray-light);
         font-size: 0.95rem;
         line-height: 1.7;
       }
-
-      /* Why section - dark with gradient accent */
-      .about-why {
-        padding: 100px 0;
-        background: #0a1628;
-        color: white;
-        position: relative;
-      }
-      .about-why::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        height: 1px;
-        background: linear-gradient(to right, transparent, rgba(0, 102, 255, 0.3), transparent);
-      }
-      .about-why h2 {
-        text-align: center;
-        font-family: 'Playfair Display', Georgia, serif;
-        font-size: 2.5rem;
-        margin-bottom: 48px;
-        color: white;
-      }
-      .about-why-content {
-        max-width: 640px;
-        margin: 0 auto;
-        text-align: center;
-        padding: 0 24px;
-      }
-      .about-why-content p {
-        font-size: 1.15rem;
-        color: #94a3b8;
-        margin-bottom: 24px;
-        line-height: 1.8;
-      }
-      .about-why-content .lead {
-        font-size: 1.35rem;
-        color: white;
-        font-weight: 500;
-      }
-      .about-why-content .emphasis {
-        font-family: 'Playfair Display', Georgia, serif;
-        font-size: 1.5rem;
-        color: #0066ff;
-        font-weight: 500;
-        margin-top: 40px;
-        font-style: italic;
-      }
-
-      /* CTA override for dark theme */
-      .about-cta {
-        background: radial-gradient(ellipse at bottom, #1b2a4a 0%, #0a1628 70%);
-      }
-      .about-cta .format-item {
-        border-bottom-color: rgba(255, 255, 255, 0.06);
-        color: #94a3b8;
-      }
-      .about-cta .format-item strong {
-        color: white;
-      }
-
-      /* Footer links override */
-      .footer-links a {
-        color: #64748b;
-        text-decoration: none;
-        font-size: 0.9rem;
-      }
-      .footer-links a:hover {
-        color: white;
-      }
-      .footer-links {
-        display: flex;
-        gap: 24px;
-      }
-
       @media (max-width: 768px) {
-        .about-hero h1 { font-size: 3rem; }
         .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 24px; }
         .about-grid { grid-template-columns: 1fr; }
-        .stat-item .stat-number { font-size: 2.25rem; }
+        .stat-number { font-size: 2.25rem; }
       }
     </style>
   </head>
@@ -269,14 +119,14 @@
     </nav>
 
     <main>
-      <section class="about-hero">
+      <section class="hero">
         <div class="hero-content">
-          <p class="hero-tagline">Engineer &bull; Operator &bull; Builder</p>
-          <h1>Mike George</h1>
-          <p class="hero-subtitle">
+          <div class="location-badge">Engineer &bull; Operator &bull; Builder</div>
+          <h1>Michael George</h1>
+          <p class="hero-subtitle" style="margin-bottom: 20px;">
             Two engineering degrees. A decade building software at Garmin.
-            Another decade running businesses. I know the problems — and
-            I know how to solve them.
+            Another decade running Cafe Gratitude KC. I know the problems —
+            and I know how to solve them.
           </p>
           <div class="hero-cta">
             <a href="#contact" class="btn btn-primary">Let's Talk</a>
@@ -306,75 +156,79 @@
         </div>
       </section>
 
-      <section id="background" class="about-experience">
-        <h2>Background</h2>
-        <div class="about-grid">
-          <div class="about-card">
-            <div class="card-label">Education</div>
-            <h3>Two Engineering Degrees</h3>
-            <p>
-              Trained to break problems down, build systems that work,
-              and think in terms of cause and effect. Engineering
-              isn't just what I studied — it's how I approach everything.
-            </p>
+      <section id="background" class="experience">
+        <div class="container">
+          <h2>Background</h2>
+          <div class="about-grid">
+            <div class="about-card">
+              <div class="card-label">Education</div>
+              <h3>Two Engineering Degrees</h3>
+              <p>
+                Trained to break problems down, build systems that work,
+                and think in terms of cause and effect. Engineering
+                isn't just what I studied — it's how I approach everything.
+              </p>
+            </div>
+            <div class="about-card">
+              <div class="card-label">Career</div>
+              <h3>Advanced Solutions Engineer at Garmin</h3>
+              <p>
+                10 years of software development at Garmin — building
+                real products used by millions of people. Enterprise-grade
+                engineering, shipping code that has to work.
+              </p>
+            </div>
+            <div class="about-card">
+              <div class="card-label">Operator</div>
+              <h3>Cafe Gratitude KC</h3>
+              <p>
+                10 years running a business in Kansas City. Payroll, clients,
+                invoicing, taxes, hiring, firing, marketing — all of it.
+                I've lived the problems I'm now solving with AI.
+              </p>
+            </div>
+            <div class="about-card">
+              <div class="card-label">Now</div>
+              <h3>AI That Actually Works</h3>
+              <p>
+                I'm not selling AI hype. I've spent my career at the
+                intersection of software and business operations. I know
+                what's real, what's noise, and what will actually move
+                the needle for your company.
+              </p>
+            </div>
           </div>
-          <div class="about-card">
-            <div class="card-label">Career</div>
-            <h3>Advanced Solutions Engineer at Garmin</h3>
-            <p>
-              10 years of software development at Garmin — building
-              real products used by millions of people. Enterprise-grade
-              engineering, shipping code that has to work.
+        </div>
+      </section>
+
+      <section id="why" class="transformation">
+        <div class="container">
+          <h2>Why I Built Big Wave AI</h2>
+          <div class="transformation-content">
+            <p class="transformation-lead">
+              I know the problems of running a business because I've had them all.
             </p>
-          </div>
-          <div class="about-card">
-            <div class="card-label">Operator</div>
-            <h3>Cafe Gratitude KC</h3>
             <p>
-              10 years running a business in Kansas City. Payroll, clients,
-              invoicing, taxes, hiring, firing, marketing — all of it.
-              I've lived the problems I'm now solving with AI.
+              The emails that pile up. The invoices you forget to send.
+              The follow-ups that fall through the cracks. The client
+              work that's amazing but the admin that's killing you.
+              The feeling that you're working in your business instead
+              of on it.
             </p>
-          </div>
-          <div class="about-card">
-            <div class="card-label">Now</div>
-            <h3>AI That Actually Works</h3>
             <p>
-              I'm not selling AI hype. I've spent my career at the
-              intersection of software and business operations. I know
-              what's real, what's noise, and what will actually move
-              the needle for your company.
+              I also know how to solve them. Not with more people.
+              Not with more software subscriptions. With AI agents
+              that do the work — reliably, continuously, and at a
+              fraction of the cost.
+            </p>
+            <p class="transformation-emphasis">
+              I built the company I wish existed when I needed it.
             </p>
           </div>
         </div>
       </section>
 
-      <section id="why" class="about-why">
-        <h2>Why I Built Big Wave AI</h2>
-        <div class="about-why-content">
-          <p class="lead">
-            I know the problems of running a business because I've had them all.
-          </p>
-          <p>
-            The emails that pile up. The invoices you forget to send.
-            The follow-ups that fall through the cracks. The client
-            work that's amazing but the admin that's killing you.
-            The feeling that you're working in your business instead
-            of on it.
-          </p>
-          <p>
-            I also know how to solve them. Not with more people.
-            Not with more software subscriptions. With AI agents
-            that do the work — reliably, continuously, and at a
-            fraction of the cost.
-          </p>
-          <p class="emphasis">
-            I built the company I wish existed when I needed it.
-          </p>
-        </div>
-      </section>
-
-      <section id="contact" class="cta-section about-cta">
+      <section id="contact" class="cta-section">
         <div class="container">
           <h2>Let's Talk</h2>
           <p>
@@ -386,15 +240,15 @@
             <div class="format-details">
               <div class="format-item">
                 <strong>Email:</strong>
-                <a href="mailto:mikegeorge@gmail.com" style="color: var(--color-primary);">mikegeorge@gmail.com</a>
+                <a href="mailto:mikegeorge@gmail.com">mikegeorge@gmail.com</a>
               </div>
               <div class="format-item">
                 <strong>Phone:</strong>
-                <a href="tel:+19135759967" style="color: var(--color-primary);">(913) 575-9967</a>
+                <a href="tel:+19135759967">(913) 575-9967</a>
               </div>
               <div class="format-item">
                 <strong>LinkedIn:</strong>
-                <a href="https://www.linkedin.com/in/mikegeorge" target="_blank" style="color: var(--color-primary);">linkedin.com/in/mikegeorge</a>
+                <a href="https://www.linkedin.com/in/mikegeorge" target="_blank">linkedin.com/in/mikegeorge</a>
               </div>
               <div class="format-item">
                 <strong>Based in:</strong> Kansas City, MO
