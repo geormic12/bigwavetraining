@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Big Wave AI - Mike George</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --color-primary: #0066ff;
+        --color-primary-dark: #0052cc;
+        --color-secondary: #00d4aa;
+        --color-dark: #0a1628;
+        --color-dark-light: #1a2a44;
+        --color-gray: #64748b;
+        --color-light: #f1f5f9;
+        --color-white: #ffffff;
+        --font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      }
+
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+
+      body {
+        font-family: var(--font-family);
+        background: var(--color-dark);
+        color: var(--color-white);
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        padding: 40px 20px;
+      }
+
+      .card {
+        max-width: 480px;
+        width: 100%;
+        text-align: center;
+      }
+
+      .avatar {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+        margin: 0 auto 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 56px;
+        line-height: 1;
+      }
+
+      .name {
+        font-size: 28px;
+        font-weight: 700;
+        margin-bottom: 4px;
+      }
+
+      .title {
+        font-size: 16px;
+        color: var(--color-gray);
+        margin-bottom: 8px;
+      }
+
+      .company {
+        font-size: 18px;
+        font-weight: 600;
+        color: var(--color-secondary);
+        margin-bottom: 24px;
+      }
+
+      .bio {
+        font-size: 15px;
+        color: #94a3b8;
+        line-height: 1.6;
+        margin-bottom: 32px;
+        padding: 0 10px;
+      }
+
+      .links {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        margin-bottom: 32px;
+      }
+
+      .link-btn {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 16px 20px;
+        background: var(--color-dark-light);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 12px;
+        color: var(--color-white);
+        text-decoration: none;
+        font-size: 16px;
+        font-weight: 500;
+        transition: all 0.2s ease;
+      }
+
+      .link-btn:hover {
+        background: rgba(0, 102, 255, 0.15);
+        border-color: var(--color-primary);
+        transform: translateY(-2px);
+      }
+
+      .link-icon {
+        width: 40px;
+        height: 40px;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 20px;
+        flex-shrink: 0;
+      }
+
+      .link-icon.linkedin { background: #0077b5; }
+      .link-icon.email { background: var(--color-primary); }
+      .link-icon.phone { background: var(--color-secondary); }
+      .link-icon.workshop { background: linear-gradient(135deg, var(--color-primary), var(--color-secondary)); }
+      .link-icon.atlasing { background: #1e3a5f; }
+      .link-icon.web { background: #8b5cf6; }
+
+      .link-text {
+        text-align: left;
+      }
+
+      .link-label {
+        font-size: 14px;
+        color: var(--color-gray);
+      }
+
+      .link-value {
+        font-size: 16px;
+      }
+
+      .services {
+        text-align: left;
+        margin-bottom: 32px;
+      }
+
+      .services h3 {
+        font-size: 14px;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        color: var(--color-gray);
+        margin-bottom: 16px;
+      }
+
+      .service-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      .tag {
+        padding: 8px 16px;
+        background: rgba(0, 102, 255, 0.1);
+        border: 1px solid rgba(0, 102, 255, 0.2);
+        border-radius: 20px;
+        font-size: 14px;
+        color: #93c5fd;
+      }
+
+      .footer {
+        padding-top: 24px;
+        border-top: 1px solid rgba(255, 255, 255, 0.06);
+        font-size: 13px;
+        color: var(--color-gray);
+      }
+
+      .footer a {
+        color: var(--color-secondary);
+        text-decoration: none;
+      }
+
+      @media (max-width: 480px) {
+        body { padding: 24px 16px; }
+        .name { font-size: 24px; }
+        .avatar { width: 100px; height: 100px; font-size: 48px; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <div class="avatar">🌊</div>
+      <div class="name">Mike George</div>
+      <div class="title">Founder</div>
+      <div class="company">Big Wave AI</div>
+      <div class="bio">
+        Helping businesses ride the AI wave. Technology consulting, automation,
+        and hands-on AI training workshops in Kansas City.
+      </div>
+
+      <div class="links">
+        <a href="https://bigwavetraining.com" class="link-btn">
+          <div class="link-icon workshop">🌊</div>
+          <div class="link-text">
+            <div class="link-label">AI Training Workshop</div>
+            <div class="link-value">bigwavetraining.com</div>
+          </div>
+        </a>
+
+        <a href="https://atlasing.ai" class="link-btn">
+          <div class="link-icon atlasing">🗺️</div>
+          <div class="link-text">
+            <div class="link-label">Atlasing AI</div>
+            <div class="link-value">Process Mapping for Consulting Firms</div>
+          </div>
+        </a>
+
+        <a href="https://www.linkedin.com/in/mikegeorge" class="link-btn">
+          <div class="link-icon linkedin">in</div>
+          <div class="link-text">
+            <div class="link-label">LinkedIn</div>
+            <div class="link-value">Connect with me</div>
+          </div>
+        </a>
+
+        <a href="mailto:mikegeorge@gmail.com" class="link-btn">
+          <div class="link-icon email">✉</div>
+          <div class="link-text">
+            <div class="link-label">Email</div>
+            <div class="link-value">mikegeorge@gmail.com</div>
+          </div>
+        </a>
+
+        <a href="tel:+19135759967" class="link-btn">
+          <div class="link-icon phone">📞</div>
+          <div class="link-text">
+            <div class="link-label">Phone</div>
+            <div class="link-value">(913) 575-9967</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="services">
+        <h3>Services</h3>
+        <div class="service-tags">
+          <span class="tag">AI Strategy</span>
+          <span class="tag">Workflow Automation</span>
+          <span class="tag">AI Training</span>
+          <span class="tag">Custom Agents</span>
+          <span class="tag">Microsoft 365 + AI</span>
+        </div>
+      </div>
+
+      <div class="footer">
+        Big Wave AI LLC &bull; Kansas City, MO<br />
+        <a href="https://bigwavetraining.com">bigwavetraining.com</a>
+      </div>
+    </div>
+  </body>
+</html>
