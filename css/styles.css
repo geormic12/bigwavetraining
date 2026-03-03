@@ -188,6 +188,12 @@ body {
     gap: 4px;
     list-style: none;
     overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.subnav-links::-webkit-scrollbar {
+    display: none;
 }
 
 .subnav-links a {
