@@ -1,0 +1,615 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>IRS Call Cheat Sheet</title>
+    <link rel="stylesheet" href="css/styles.css?v=3" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      .cheat-sheet {
+        max-width: 820px;
+        margin: 120px auto 80px;
+        padding: 0 24px;
+      }
+      .cheat-sheet h1 {
+        font-family: var(--font-serif);
+        font-size: 2.5rem;
+        color: var(--color-white);
+        margin-bottom: 8px;
+      }
+      .cheat-sheet .subtitle {
+        font-size: 1.1rem;
+        color: var(--color-gray-light);
+        margin-bottom: 48px;
+      }
+      .cheat-sheet h2 {
+        font-family: var(--font-serif);
+        font-size: 1.6rem;
+        color: var(--color-white);
+        margin-top: 56px;
+        margin-bottom: 20px;
+        padding-bottom: 8px;
+        border-bottom: 1px solid rgba(255,255,255,0.08);
+      }
+      .cheat-sheet h3 {
+        font-size: 1.15rem;
+        color: var(--color-secondary);
+        margin-top: 32px;
+        margin-bottom: 12px;
+      }
+      .cheat-sheet p {
+        margin-bottom: 16px;
+        line-height: 1.75;
+      }
+      .cheat-sheet strong {
+        color: var(--color-white);
+      }
+      .cheat-sheet ul, .cheat-sheet ol {
+        margin-bottom: 16px;
+        padding-left: 24px;
+      }
+      .cheat-sheet li {
+        margin-bottom: 8px;
+        line-height: 1.65;
+      }
+      .script-block {
+        background: var(--color-dark-light);
+        border: 1px solid rgba(255,255,255,0.08);
+        border-left: 3px solid var(--color-primary);
+        border-radius: var(--radius-md);
+        padding: 20px 24px;
+        margin: 16px 0 24px;
+        font-style: italic;
+        line-height: 1.75;
+        color: #cbd5e1;
+      }
+      .script-block .label {
+        display: block;
+        font-style: normal;
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        color: var(--color-primary);
+        margin-bottom: 8px;
+        font-weight: 600;
+      }
+      .warning-block {
+        background: rgba(255, 170, 0, 0.08);
+        border: 1px solid rgba(255, 170, 0, 0.2);
+        border-left: 3px solid #ffaa00;
+        border-radius: var(--radius-md);
+        padding: 20px 24px;
+        margin: 16px 0 24px;
+        line-height: 1.75;
+      }
+      .warning-block .label {
+        display: block;
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        color: #ffaa00;
+        margin-bottom: 8px;
+        font-weight: 600;
+      }
+      .leverage-card {
+        background: rgba(0, 212, 170, 0.06);
+        border: 1px solid rgba(0, 212, 170, 0.15);
+        border-radius: var(--radius-md);
+        padding: 20px 24px;
+        margin: 12px 0;
+      }
+      .leverage-card strong {
+        color: var(--color-secondary);
+      }
+      .quick-ref {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 16px 0 24px;
+      }
+      .quick-ref th {
+        text-align: left;
+        padding: 12px 16px;
+        background: var(--color-dark-light);
+        color: var(--color-white);
+        font-size: 0.85rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        border-bottom: 2px solid rgba(0,102,255,0.3);
+      }
+      .quick-ref td {
+        padding: 12px 16px;
+        border-bottom: 1px solid rgba(255,255,255,0.04);
+        vertical-align: top;
+        line-height: 1.6;
+      }
+      .quick-ref tr:hover td {
+        background: rgba(0,102,255,0.04);
+      }
+      .phase-number {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        background: var(--color-primary);
+        color: var(--color-white);
+        font-weight: 700;
+        font-size: 0.9rem;
+        margin-right: 10px;
+        flex-shrink: 0;
+      }
+      .phase-header {
+        display: flex;
+        align-items: center;
+        margin-top: 36px;
+        margin-bottom: 14px;
+      }
+      .phase-header h3 {
+        margin: 0;
+      }
+      .checklist {
+        list-style: none;
+        padding-left: 0;
+      }
+      .checklist li {
+        padding-left: 28px;
+        position: relative;
+      }
+      .checklist li::before {
+        content: "☐";
+        position: absolute;
+        left: 0;
+        color: var(--color-gray);
+      }
+      .nuclear {
+        background: rgba(255, 60, 60, 0.06);
+        border: 1px solid rgba(255, 60, 60, 0.15);
+        border-radius: var(--radius-md);
+        padding: 20px 24px;
+        margin: 12px 0;
+      }
+      .nuclear strong {
+        color: #ff6b6b;
+      }
+      .mirror-example {
+        display: flex;
+        gap: 12px;
+        margin: 8px 0;
+        align-items: flex-start;
+      }
+      .mirror-example .speaker {
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-weight: 600;
+        min-width: 50px;
+        padding-top: 2px;
+      }
+      .mirror-example .speaker.agent { color: var(--color-gray); }
+      .mirror-example .speaker.you { color: var(--color-secondary); }
+      .divider {
+        height: 1px;
+        background: rgba(255,255,255,0.06);
+        margin: 48px 0;
+      }
+      @media (max-width: 600px) {
+        .cheat-sheet h1 { font-size: 1.8rem; }
+        .cheat-sheet h2 { font-size: 1.3rem; }
+        .quick-ref { font-size: 0.9rem; }
+        .quick-ref th, .quick-ref td { padding: 8px 10px; }
+      }
+      @media print {
+        body { background: #fff; color: #111; }
+        .header, .subnav { display: none; }
+        .cheat-sheet { margin-top: 0; }
+        .cheat-sheet h1, .cheat-sheet h2, .cheat-sheet h3, .cheat-sheet strong { color: #111; }
+        .script-block { border-color: #333; background: #f5f5f5; color: #333; }
+        .leverage-card { background: #f0faf7; border-color: #0a8; }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="header">
+      <nav class="nav">
+        <div class="logo">
+          <a href="/" style="display: flex; align-items: center; gap: 8px; text-decoration: none; color: inherit;">
+            <span class="logo-icon">🌊</span>
+            <span class="logo-text">Big Wave AI</span>
+          </a>
+        </div>
+        <ul class="nav-links">
+          <li><a href="/">Consulting</a></li>
+          <li><a href="/atlasing.html">Atlasing AI</a></li>
+          <li><a href="/workshop.html">Training</a></li>
+          <li><a href="/about.html">About</a></li>
+          <li><a href="/links.html">Links</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="cheat-sheet">
+      <h1>IRS Call Preparation Guide</h1>
+      <p class="subtitle">Chris Voss negotiation tactics applied to IRS conversations &mdash; with exact scripts, contingency responses, and escalation paths.</p>
+
+      <!-- =========================================== -->
+      <h2>Your Leverage (It's Stronger Than You Think)</h2>
+
+      <div class="leverage-card">
+        <strong>1. The IRS made an error and you have documentation rights.</strong>
+        <p>They misapplied your 2018 payment to a different year without notifying you. Under the Taxpayer Bill of Rights:</p>
+        <ul>
+          <li><strong>Right to Be Informed (#1)</strong> &mdash; they were required to tell you about the reallocation</li>
+          <li><strong>Right to Quality Service (#2)</strong> &mdash; you asked repeatedly and couldn't get answers</li>
+          <li><strong>Right to Pay No More Than the Correct Amount (#3)</strong> &mdash; if 2018 was paid, your balance is wrong</li>
+          <li><strong>Right to Challenge the IRS's Position and Be Heard (#4)</strong></li>
+        </ul>
+      </div>
+
+      <div class="leverage-card">
+        <strong>2. Collection Due Process (CDP) hearing freezes everything.</strong>
+        <p>If you received a Final Notice of Intent to Levy (Letter 1058, LT11, or CP504), you have <strong>30 days</strong> to request a CDP hearing. A CDP request <strong>legally stops all collection activity</strong> &mdash; no levy, no garnishment &mdash; while it's being processed. This buys you months.</p>
+      </div>
+
+      <div class="leverage-card">
+        <strong>3. Your "freeze" has a reasonable cause argument.</strong>
+        <p>You stopped paying because the IRS couldn't resolve their own error. That's not irresponsibility &mdash; that's a rational response to conflicting information from the agency itself.</p>
+      </div>
+
+      <div class="leverage-card">
+        <strong>4. This is exactly what IRS Appeals and the Taxpayer Advocate Service exist for.</strong>
+        <p>$200K across 4 years with an IRS payment-misapplication error is textbook TAS territory.</p>
+      </div>
+
+      <!-- =========================================== -->
+      <h2>Before You Dial &mdash; Prep Checklist</h2>
+
+      <h3>Documents to Have in Front of You</h3>
+      <ul class="checklist">
+        <li>SSN (yours and ex-husband's if joint returns)</li>
+        <li>The notice/letter number threatening levy (top right corner of the letter)</li>
+        <li>The date on that notice (need to know if you're within 30 days for CDP)</li>
+        <li>Any records showing your 2018 payment was made (bank statement, cancelled check, IRS receipt)</li>
+        <li>Any records of previous calls where you asked about the misapplied payment (dates, agent names)</li>
+        <li>A notepad &mdash; you will write down the agent's name, ID number, and everything discussed</li>
+      </ul>
+
+      <h3>Your Accusation Audit (Memorize This)</h3>
+      <p>These are the negative things the agent will think about you. You say them first to defuse them:</p>
+      <ul>
+        <li>"She owes $200K and hasn't been paying"</li>
+        <li>"She's making excuses"</li>
+        <li>"She's one of those people who just ignores the IRS"</li>
+        <li>"She's going to be angry and difficult"</li>
+        <li>"She probably doesn't have a real reason"</li>
+      </ul>
+
+      <h3>Your Calibrated Questions (Write on Paper Next to You)</h3>
+      <ol>
+        <li>"What options are available to me to stop the levy while we get the 2018 payment issue resolved?"</li>
+        <li>"How can we get the 2018 payment misapplication corrected so we're working from the right numbers?"</li>
+        <li>"What would you need from me to document that I tried to get this resolved before it escalated?"</li>
+        <li>"How am I supposed to set up a payment arrangement when we don't even agree on what the correct balance is?"</li>
+        <li>"What's the process for requesting a Collection Due Process hearing?"</li>
+        <li>"How should I go about getting this reviewed by Appeals?"</li>
+      </ol>
+
+      <div class="divider"></div>
+
+      <!-- =========================================== -->
+      <h2>The Call &mdash; Phase by Phase</h2>
+
+      <!-- PHASE 1 -->
+      <div class="phase-header">
+        <span class="phase-number">1</span>
+        <h3>Opening &mdash; Accusation Audit + FM DJ Voice</h3>
+      </div>
+      <p>Slow down your voice. Lower it slightly. Late-night radio host &mdash; calm, steady, downward inflection at the end of sentences. On the phone, <strong>tone is 85% of your message.</strong></p>
+
+      <div class="script-block">
+        <span class="label">Say This</span>
+        "Hi, thank you for taking my call. I know my account looks bad. Four tax years, a large balance, and I haven't been paying. You're probably thinking I'm one of those people who just ignores their obligations and calls at the last minute with excuses. I understand why it would look that way. But there's a piece of this that I think is going to change how this looks, and I'm hoping you can help me work through it."
+      </div>
+
+      <div class="warning-block">
+        <span class="label">Why This Works</span>
+        You named every negative assumption and took them off the table. The agent's natural response is to soften: "Okay, tell me what's going on." You also triggered curiosity with "a piece that's going to change how this looks."
+      </div>
+
+      <!-- PHASE 2 -->
+      <div class="phase-header">
+        <span class="phase-number">2</span>
+        <h3>Establish the IRS Error (Your Core Leverage)</h3>
+      </div>
+
+      <div class="script-block">
+        <span class="label">Say This</span>
+        "Here's what happened. My ex-husband and I paid off our 2018 tax year in full. At some point, the IRS reallocated that payment to a different tax year without notifying us. When we noticed the 2018 balance was still showing, we started calling to get it corrected. We couldn't get a clear answer for a long time. And honestly, we froze &mdash; we didn't know how much we actually owed because the numbers on our account didn't match what we'd paid, and we couldn't get anyone to fix it."
+      </div>
+
+      <p><strong>Then pause.</strong> Let the agent respond. Whatever they say, <strong>mirror it:</strong></p>
+
+      <div class="script-block">
+        <span class="label">Mirror Examples</span>
+        <div class="mirror-example">
+          <span class="speaker agent">Agent:</span>
+          <span>"I can see there was a payment credited to a different year."</span>
+        </div>
+        <div class="mirror-example">
+          <span class="speaker you">You:</span>
+          <span>"A payment credited to a different year..." <em>(pause, let them elaborate)</em></span>
+        </div>
+        <br/>
+        <div class="mirror-example">
+          <span class="speaker agent">Agent:</span>
+          <span>"It looks like it was moved to [year]."</span>
+        </div>
+        <div class="mirror-example">
+          <span class="speaker you">You:</span>
+          <span>"It was moved to [year]..." <em>(pause)</em></span>
+        </div>
+      </div>
+
+      <p>Now <strong>label:</strong></p>
+      <div class="script-block">
+        <span class="label">Label Their Reality</span>
+        "It sounds like you can actually see the reallocation in the system."<br/><br/>
+        "It seems like this wasn't something we requested or were notified about."
+      </div>
+
+      <p><strong>What you're doing:</strong> Getting the agent to confirm the IRS error on the record, from their own system, in their own words.</p>
+
+      <!-- PHASE 3 -->
+      <div class="phase-header">
+        <span class="phase-number">3</span>
+        <h3>Get "That's Right" &mdash; Lock In the Narrative</h3>
+      </div>
+
+      <p>After the agent explains what they see, <strong>summarize it back:</strong></p>
+
+      <div class="script-block">
+        <span class="label">Say This</span>
+        "So if I'm understanding this correctly &mdash; we made our 2018 payment in full, the IRS moved that payment to a different year without telling us, we called multiple times trying to get it corrected and couldn't get resolution, and during that time penalties and interest were accumulating on a balance that may not even be accurate. And now there's a levy notice with a March 13 deadline based on numbers that haven't been corrected. Do I have that right?"
+      </div>
+
+      <div class="warning-block">
+        <span class="label">Why This Matters</span>
+        When they say <strong>"That's right,"</strong> they're invested in helping you. They've co-signed your version of events. Everything after this flows from a shared understanding. <strong>"That's right" is the breakthrough.</strong> "You're right" is a dismissal &mdash; keep going until you get "That's right."
+      </div>
+
+      <!-- PHASE 4 -->
+      <div class="phase-header">
+        <span class="phase-number">4</span>
+        <h3>Calibrated Questions &mdash; Make Them Solve Your Problem</h3>
+      </div>
+
+      <p>Do NOT make demands. Ask questions that put the problem-solving burden on the agent:</p>
+
+      <div class="script-block">
+        <span class="label">Key Questions</span>
+        "Given that there's an unresolved payment misapplication on the account, <strong>what options are available to me</strong> to stop the levy while that gets corrected?"<br/><br/>
+        "<strong>How am I supposed to</strong> set up a payment arrangement when we don't even agree on what the correct balance is?"<br/><br/>
+        "<strong>What would you need from me</strong> to get the 2018 payment applied correctly?"<br/><br/>
+        "<strong>What's the best way</strong> to make sure the penalties that accumulated because of this error get reviewed?"
+      </div>
+
+      <p><strong>If they say "You still need to pay by March 13":</strong></p>
+
+      <div class="script-block">
+        <span class="label">Power Response</span>
+        "I hear you, and I want to resolve this. But <strong>how am I supposed to</strong> commit to a payment amount when the underlying balance includes a payment that was misapplied by the IRS? <strong>What would it take</strong> to get the numbers corrected first so we're both working from the same figure?"
+      </div>
+
+      <!-- PHASE 5 -->
+      <div class="phase-header">
+        <span class="phase-number">5</span>
+        <h3>Specific Requests (Deploy in This Order)</h3>
+      </div>
+
+      <h3>Request #1 &mdash; Fix the Error First</h3>
+      <div class="script-block">
+        <span class="label">Say This</span>
+        "Before we talk about payment options, I'd like to request that the 2018 payment be reviewed and applied correctly. Under my Right to Pay No More Than the Correct Amount, I need the balance to reflect what I actually owe. <strong>How do we get that process started?</strong>"
+      </div>
+
+      <h3>Request #2 &mdash; Penalty Abatement Due to IRS Error</h3>
+      <div class="script-block">
+        <span class="label">Say This</span>
+        "A significant portion of the penalties and interest accumulated while I was trying to get the IRS to correct the payment misapplication. I'd like to request penalty abatement based on reasonable cause &mdash; specifically, that the IRS's own error and the delay in resolving it contributed directly to the additional penalties. IRM 20.1.1.3 provides for abatement when the IRS is at fault. <strong>Would you be able to initiate that review?</strong>"
+      </div>
+
+      <h3>Request #3 &mdash; Stop the Levy (Collection Due Process)</h3>
+      <div class="script-block">
+        <span class="label">Say This</span>
+        "I received a notice threatening levy by March 13. I understand I have the right to request a Collection Due Process hearing under IRC Section 6330, which would pause collection activity while the case is reviewed by Appeals. <strong>How do I file that request today?</strong>"
+      </div>
+      <p>The CDP hearing is filed using <strong>Form 12153</strong> (Request for a Collection Due Process or Equivalent Hearing). Available at irs.gov. <strong>Must be filed within 30 days of the levy notice date.</strong></p>
+
+      <h3>Request #4 &mdash; If CDP Window Has Passed</h3>
+      <div class="script-block">
+        <span class="label">Say This</span>
+        "If the window for a formal CDP hearing has closed, I'd like to request a Collection Appeals Program review. <strong>What's the process for that?</strong>"
+      </div>
+
+      <h3>Request #5 &mdash; Installment Agreement (Fallback)</h3>
+      <div class="script-block">
+        <span class="label">Say This</span>
+        "While the payment misapplication and penalties are being reviewed, I'm willing to enter into an installment agreement on whatever the corrected balance turns out to be. <strong>What would that process look like for my situation?</strong>"
+      </div>
+      <p>At $200K you'll need a <strong>non-streamlined installment agreement</strong> (Form 433-A financial disclosure). Proposing willingness to pay shows good faith.</p>
+
+      <!-- PHASE 6 -->
+      <div class="phase-header">
+        <span class="phase-number">6</span>
+        <h3>No-Oriented Questions (When You Need to Push)</h3>
+      </div>
+
+      <div class="script-block">
+        <span class="label">No-Oriented Questions</span>
+        "Would it be unreasonable for me to ask that the balance be corrected before I'm forced into a payment plan based on wrong numbers?"<br/><br/>
+        "Is it out of line to request penalty abatement when the IRS's own records show the payment was misapplied?"<br/><br/>
+        "Have you given up on finding a way to resolve this before the levy date?"<br/><br/>
+        "Is it a ridiculous idea to get Appeals involved given the circumstances?"
+      </div>
+      <p>Each invites <strong>"No, that's not unreasonable"</strong> &mdash; which is a micro-agreement in your favor.</p>
+
+      <div class="divider"></div>
+
+      <!-- =========================================== -->
+      <h2>Contingency Scripts</h2>
+
+      <h3>If They Say "Pay in Full by March 13"</h3>
+      <div class="script-block">
+        <span class="label">Say This (FM DJ Voice)</span>
+        "I understand that's what the notice says. But we have an unresolved payment misapplication that changes the balance, and I have the right to a Collection Due Process hearing before a levy is executed. <strong>How do I file Form 12153 to exercise that right today?</strong>"
+      </div>
+
+      <h3>If They Say "No" to Penalty Abatement</h3>
+      <div class="script-block">
+        <span class="label">Say This</span>
+        "It sounds like you're not able to approve that at your level." <em>(Label &mdash; not accusatory, just observing.)</em><br/><br/>
+        "<strong>What would you recommend</strong> as my next step to get this reviewed? Is there a supervisor or Appeals officer who handles cases involving IRS payment errors?"
+      </div>
+
+      <h3>If the Agent Is Hostile or Dismissive</h3>
+      <div class="script-block">
+        <span class="label">Say This</span>
+        "It seems like you're dealing with a lot today, and I appreciate your time on this." <em>(Label + tactical empathy)</em><br/><br/>
+        "I just want to make sure I'm exercising my rights under the Taxpayer Bill of Rights &mdash; specifically my Right to Quality Service and my Right to Challenge the IRS's Position. <strong>How can we make this call productive for both of us?</strong>"
+      </div>
+      <p><strong>If they remain hostile:</strong> End the call politely, note their name and ID number, call back and get a different agent. Different agents, different outcomes.</p>
+
+      <h3>If They Offer a Payment Plan You Can't Afford</h3>
+      <div class="script-block">
+        <span class="label">Say This</span>
+        "I want to resolve this, and I appreciate you working through options with me. But <strong>how am I supposed to</strong> commit to $[X] per month and still cover housing, food, and medical? <strong>What would you need from me</strong> to consider a lower monthly amount based on my actual ability to pay?"
+      </div>
+      <p>If they won't budge: ask about <strong>Currently Not Collectible (CNC) status</strong> if your expenses genuinely exceed your income.</p>
+
+      <h3>If They Say "Submit Documentation"</h3>
+      <div class="script-block">
+        <span class="label">Say This</span>
+        "<strong>What specific documentation do you need</strong>, and <strong>what's the best way to submit it</strong> so it gets to the right person? And while that review is pending, <strong>what happens with the March 13 levy deadline?</strong>"
+      </div>
+      <p>Get the fax number or mailing address. Ask them to note on your account that documentation is incoming. Ask for a <strong>hold on collection activity</strong> while the review is pending.</p>
+
+      <div class="divider"></div>
+
+      <!-- =========================================== -->
+      <h2>Nuclear Options (If the Call Goes Nowhere)</h2>
+
+      <div class="nuclear">
+        <strong>1. File Form 12153 (CDP Hearing Request) immediately.</strong>
+        <p>Download from irs.gov. Fax or mail it. This legally freezes the levy. If you're within 30 days of the notice, this is guaranteed protection.</p>
+      </div>
+
+      <div class="nuclear">
+        <strong>2. Contact the Taxpayer Advocate Service (TAS).</strong>
+        <p>Phone: <strong>877-777-4778</strong><br/>
+        Form 911 (Request for TAS Assistance)<br/>
+        TAS exists specifically for cases where the IRS isn't resolving errors and taxpayers face imminent harm. Your case &mdash; IRS error, unresolved for years, now threatening levy &mdash; is textbook TAS territory.</p>
+      </div>
+
+      <div class="nuclear">
+        <strong>3. Consult a tax professional.</strong>
+        <p>For $200K with an IRS payment misapplication error, a tax attorney or enrolled agent who specializes in IRS disputes may be worth the investment. Many offer free consultations. They can file the CDP request and handle Appeals on your behalf.</p>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- =========================================== -->
+      <h2>Quick Reference Table</h2>
+
+      <table class="quick-ref">
+        <thead>
+          <tr>
+            <th>Moment</th>
+            <th>Technique</th>
+            <th>Words</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Opening</td>
+            <td>Accusation Audit</td>
+            <td>"I know my account looks bad... you're probably thinking..."</td>
+          </tr>
+          <tr>
+            <td>When they state facts</td>
+            <td>Mirror</td>
+            <td>Repeat last 3 words + pause</td>
+          </tr>
+          <tr>
+            <td>When they explain</td>
+            <td>Label</td>
+            <td>"It sounds like..." / "It seems like..."</td>
+          </tr>
+          <tr>
+            <td>When you need options</td>
+            <td>Calibrated Question</td>
+            <td>"What options are available to me?"</td>
+          </tr>
+          <tr>
+            <td>When they demand payment</td>
+            <td>Power Question</td>
+            <td>"How am I supposed to do that when...?"</td>
+          </tr>
+          <tr>
+            <td>When you need agreement</td>
+            <td>Summary &rarr; "That's right"</td>
+            <td>"So if I understand correctly..."</td>
+          </tr>
+          <tr>
+            <td>When you need a yes</td>
+            <td>No-Oriented Question</td>
+            <td>"Would it be unreasonable to...?"</td>
+          </tr>
+          <tr>
+            <td>When you cite rules</td>
+            <td>Normative Leverage</td>
+            <td>"Under IRM 20.1.1..." / "Under my Right to..."</td>
+          </tr>
+          <tr>
+            <td>When they say no</td>
+            <td>Label + Redirect</td>
+            <td>"It sounds like your hands are tied. What would you recommend?"</td>
+          </tr>
+          <tr>
+            <td>Always</td>
+            <td>FM DJ Voice</td>
+            <td>Slow. Calm. Downward inflection.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="divider"></div>
+
+      <!-- =========================================== -->
+      <h2>Key Rules</h2>
+      <ol>
+        <li><strong>Tone is 85%+ of meaning on the phone.</strong> The FM DJ voice is non-negotiable.</li>
+        <li><strong>Never volunteer info that wasn't asked.</strong> Answer fully but don't ramble.</li>
+        <li><strong>Never say "fair."</strong> Reference specific rights and IRM sections instead.</li>
+        <li><strong>Use precise numbers</strong> when proposing payments ($347/month, not "about $350").</li>
+        <li><strong>Document everything.</strong> Agent name, ID number, date, time, what was discussed, what was agreed. Ask them to note the call on your account.</li>
+        <li><strong>"No" from one agent isn't final.</strong> Call back, get a different agent, or escalate.</li>
+        <li><strong>Get everything in writing</strong> after verbal agreements.</li>
+      </ol>
+
+      <div class="divider"></div>
+
+      <p style="text-align: center; color: var(--color-gray); font-size: 0.9rem; margin-top: 40px;">
+        The IRS error is your anchor. Every response, every question, every redirect comes back to: <em>the numbers aren't right because of something the IRS did, and you can't resolve what you can't verify.</em> That's not an excuse &mdash; that's a factual position supported by their own records. Lead with that and don't let go of it.
+      </p>
+
+    </main>
+
+  </body>
+</html>
