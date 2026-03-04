@@ -47,6 +47,18 @@
       <section class="hero">
         <div class="hero-content">
           <div class="location-badge">AI Consulting &bull; Kansas City</div>
+          <div class="video-wrapper" style="margin-bottom: 40px;">
+            <div class="video-embed" id="hero-video">
+              <iframe id="hero-stream" src="https://customer-7dbytdh7xqoratq6.cloudflarestream.com/d601d7b0193d4fb47e5599df3e409ba7/iframe?autoplay=true&muted=true&loop=true&preload=auto&controls=false" allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>
+              <div class="video-overlay" id="hero-overlay">
+                <div class="play-button">
+                  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <polygon points="6,3 20,12 6,21" />
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
           <h1>
             Your Customers Chose You<br />
             <span class="highlight">Because You're Not a Robot.</span>
@@ -406,7 +418,7 @@
               </div>
               <div class="format-item">
                 <strong>LinkedIn:</strong>
-                <a href="https://www.linkedin.com/in/mikegeorge" target="_blank">linkedin.com/in/mikegeorge</a>
+                <a href="https://www.linkedin.com/in/michaelgeorgeai" target="_blank">linkedin.com/in/michaelgeorgeai</a>
               </div>
               <div class="format-item">
                 <strong>Based in:</strong> Kansas City, MO
@@ -441,5 +453,17 @@
         </div>
       </div>
     </footer>
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const heroIframe = document.getElementById('hero-stream');
+        const overlay = document.getElementById('hero-overlay');
+        if (heroIframe && overlay) {
+          overlay.addEventListener('click', () => {
+            heroIframe.src = 'https://customer-7dbytdh7xqoratq6.cloudflarestream.com/d601d7b0193d4fb47e5599df3e409ba7/iframe?autoplay=true&preload=auto&controls=true';
+            overlay.classList.add('hidden');
+          });
+        }
+      });
+    </script>
   </body>
 </html>
